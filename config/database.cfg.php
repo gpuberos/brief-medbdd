@@ -1,0 +1,11 @@
+<?php
+
+// Tableau de configuration contenant les variables d'environnement pour la base de données (BDD).
+// Ces informations sont nécessaires pour établir une connexion avec la BDD.
+$config = [
+    'dbhost' => 'localhost', // L'hôte de la BDD.
+    'dbname' => 'dbbrief_med', // Le nom de la BDD.
+    'dbport' => '3306', // Le port à utiliser pour la connexion à la BDD
+    'dbuser' => 'root',// Le nom d'utilisateur pour se connecter à la BDD.
+    'dbpass' => '' // Le mot de passe pour se connecter à la BDD.
+];
