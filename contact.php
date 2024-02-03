@@ -11,7 +11,7 @@
 <div class="container my-5 text-white">
     <div class="container text-center">
         <!-- Section générique titre + paragraphe -->
-        <?php displayPrimarySection($primarySection, 'contact'); ?>
+        <?php displaySection($db, 'contact'); ?>
     </div>
     <?php require_once __DIR__ . '/utilities/form/contact_form.ut.php'; ?>
 </div>

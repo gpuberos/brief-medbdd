@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav fs-3">
                 <?php
-                $navbarLinks = generateNavLinks($pages, 'navbar');
+                $navbarLinks = generateNavLinks($db, 'navbar');
                 foreach ($navbarLinks as $key => $value) :
                 ?>
                     <li class="nav-item">

@@ -1,14 +1,24 @@
 <?php
 
+// Inclusion du fichier de configuration des chemins d'accès (Images)
+require_once dirname(dirname(__DIR__)) . '/config/path.cfg.php';
+
+// Inclusion du fichier de configuration de la base de données
+require_once dirname(dirname(__DIR__)) . '/config/database.cfg.php';
+
+// Inclusion du fichier contenant les fonctions relatives à la base de données
+require_once dirname(dirname(__DIR__)) . '/function/database.fn.php';
+
+// Appel de la fonction getPDOlink() pour obtenir un lien vers la base de données
+$db = getPDOlink($config);
+
+// Inclusion du fichier contenant les fonctions nécessaire à l'en-tête
+require_once dirname(dirname(__DIR__)) . '/function/header.fn.php';
+
 require_once dirname(dirname(__DIR__)) . '/data/pages_infos.data.php';
 require_once dirname(dirname(__DIR__)) . '/data/primary_section.data.php';
 
-require_once dirname(dirname(__DIR__)) . '/function/header.fn.php';
-
-$pageInfo = getPageInfo($pages, 'navbar');
-$title = $pageInfo['title'];
-$metaDesc = $pageInfo['metaDesc'];
-$bodyId = $pageInfo['bodyId'];
+$pageInfo = getPageInfo($db);
 
 ?>
 
@@ -24,13 +34,13 @@ $bodyId = $pageInfo['bodyId'];
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <!-- CSS Custom -->
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="<?= CSS_PATH ?>/styles.css">
 
-    <title><?= $title ?></title>
-    <meta name="description" content="<?= $metaDesc ?>">
+    <title><?= $pageInfo['page_title'] ?></title>
+    <meta name="description" content="<?= $pageInfo['page_meta_desc'] ?>">
 </head>
 
-<body id="<?= $bodyId ?>">
+<body id="<?= $pageInfo['page_bodyId'] ?>">
     <header>
         <?php require_once dirname(dirname(__DIR__)) . '/utilities/nav/header_nav.ut.php'; ?>
     </header>

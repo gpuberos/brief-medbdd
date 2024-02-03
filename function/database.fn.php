@@ -6,15 +6,12 @@ function getPDOlink($config)
 {
     // Construction du DSN (Data Source Name) pour la connexion à la base de données.
     // Le DSN comprend le type de base de données (mysql), le nom de la base de données, l'hôte et le port.
-    $dsn = 'mysql:dbname=' . $config['dbname'] . ';host=' . $config['dbhost'] . ';port=' . $config['dbport'];
+    $dsn = 'mysql:dbname=' . $config['dbname'] . ';host=' . $config['dbhost'] . ';port=' . $config['dbport'] . ';charset=' . $config['dbchar'];
 
     // Tentative de connexion à la base de données en utilisant l'objet PDO (PHP Data Objects).
     try {
         // Création d'une nouvelle instance de l'objet PDO avec le DSN et les informations d'authentification.
         $db = new PDO($dsn, $config['dbuser'], $config['dbpass']);
-
-        // Envoi des requêtes en UTF-8 pour assurer la compatibilité avec les caractères internationaux.
-        $db->exec("SET NAMES utf8");
 
         // Définition du mode de récupération par défaut pour les requêtes.
         // PDO::FETCH_ASSOC signifie que les résultats seront retournés sous forme de tableau associatif.
