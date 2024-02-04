@@ -35,12 +35,14 @@ function getPageInfo($db)
     }
 }
 
+// La fonction generateNavLinks génère un tableau de liens de navigation pour une catégorie de navigation spécifiée (navbar, footernav ...).
+// Chaque lien contient le titre de la page, son URL et une classe CSS indiquant si le lien est actif ou non (basé sur l'URL courante).
 function generateNavLinks($db, $navName)
 {
     // Obtention du chemin du script courant
     $currentScriptPath = getCurrentScriptPath();
 
-    // Prépare la requête SQL
+    // Prépare la requête SQL pour récupérer les pages qui correspondent à la catégorie de navigation spécifiée
     $sql = "SELECT pages.*, nav_category.nav_name FROM pages 
     INNER JOIN nav_category ON pages.nav_category_id = nav_category.id
     WHERE nav_category.nav_name = :navName";

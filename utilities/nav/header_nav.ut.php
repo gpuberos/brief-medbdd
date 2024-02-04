@@ -5,13 +5,13 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav fs-3">
+            <ul class="navbar-nav gap-2 fs-3">
                 <?php
                 $navbarLinks = generateNavLinks($db, 'navbar');
                 foreach ($navbarLinks as $key => $value) :
                 ?>
                     <li class="nav-item">
-                        <a href="<?= $value['link_url'] ?>" class="nav-link text-center <?= $value['link_active'] ?>"><?= $value['link_title'] ?></a>
+                        <a href="<?= $value['link_url'] ?>" class="nav-link px-5 text-center <?= $value['link_active'] ?>"><?= $value['link_title'] ?></a>
                     </li>
                 <?php endforeach; ?>
             </ul>
