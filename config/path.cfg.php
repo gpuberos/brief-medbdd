@@ -1,7 +1,7 @@
 <?php
 
-// Définition du chemin d'accès par défaut au répertoire des CSS
-define("CSS_PATH", "/assets/css");
+// Définition du chemin d'accès par défaut au répertoire des CSS 
+define("CSS_PATH", "../assets/css");
 
 // Définition du chemin d'accès par défaut au répertoire des images
 define("IMG_PATH", "/assets/img");

@@ -38,6 +38,7 @@ $pageInfo = getPageInfo($db);
 
     <title><?= $pageInfo['page_title'] ?></title>
     <meta name="description" content="<?= $pageInfo['page_meta_desc'] ?>">
+    <meta name="keywords" content="<?= $pageInfo['page_meta_keywords'] ?>">
 </head>
 
 <body id="<?= $pageInfo['page_bodyId'] ?>">
