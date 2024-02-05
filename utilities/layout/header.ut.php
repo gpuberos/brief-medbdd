@@ -47,4 +47,4 @@ $pageInfo = getPageInfo($db);
         <?php require_once dirname(dirname(__DIR__)) . '/utilities/nav/header_nav.ut.php'; ?>
     </header>
 
-    <main>
+    <main class="py-4">

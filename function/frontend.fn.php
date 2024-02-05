@@ -27,8 +27,8 @@ function displaySection($db, $sectionCategory)
             // On affiche la section en utilisant echo. La section est composée d'un titre (h2) et d'un contenu (p).
             // Le titre et le contenu sont récupérés à partir du tableau $section.
             echo '
-            <section>
-                <h2 class="d-flex justify-content-center fs-1">' . $section['section_title'] . '</h2>
+            <section class="mb-5">
+                <h2 class="text-center fs-1 mb-4">' . $section['section_title'] . '</h2>
                 <p class="fs-22">' . $section['section_description'] . '</p>
             </section>
             ';
