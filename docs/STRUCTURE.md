@@ -20,7 +20,7 @@ Contient les différentes documentations :
 - `FUNCTION.md` : Documentation sur les fonctions utilisées
 - `STRUCTURE.md` : Documentation descriptif des différents fichiers.
 
-Répertoire `uml` contient le fichier source du schéma UML de la base de données (draw.io) `dbbrief_med-uml.drawio`. `Le répertoire `export` contient les différentes images exportés du schéma UML.
+Répertoire `uml` contient le fichier source du schéma UML de la base de données (draw.io) `dbbrief_med-uml.drawio`. Le répertoire `export` contient les différentes images exportés du schéma UML.
 
 ## function
 
