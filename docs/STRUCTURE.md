@@ -7,7 +7,7 @@ Contient les fichiers de configuration du site
 - `database.cfg.php` : Contient les informations qui sont nécessaires pour établir une connexion avec la BDD.
 - `path.cfg.php` : Contient les chemins d'accès pour CSS, pour les images.
 
-Ces scripts sont inclus dans les pages à la racine du site en utilisant `require_once`.
+Ces scripts sont inclus dans les pages du site en utilisant `require_once`.
 
 ## data
 
@@ -25,11 +25,11 @@ Répertoire `uml` contient le fichier source du schéma UML de la base de donné
 ## function
 
 Répertoire contenant des fichiers de fonctions qui sont utilisés à travers le site. Ces fichiers conteniennent des fonctions réutilisables qui accomplissent des tâches spécifiques comme la manipulation de données, l'affichage de données...
-Ces scripts sont inclus dans les pages à la racine du site en utilisant `require_once`.
+Ces scripts sont inclus dans les pages en utilisant `require_once`.
 
 ## utilities
 
- Répertoire utilisé pour stocker des scripts qui fournissent des fonctionnalités communes et réutilisables à travers le site. Ces scripts sont inclus dans les pages à la racine du site en utilisant `require_once`. C’est une bonne pratique pour organiser le code de manière modulaire et réutilisable.
+ Répertoire utilisé pour stocker des scripts qui fournissent des fonctionnalités communes et réutilisables à travers le site. Ces scripts sont inclus dans les pages du site en utilisant `require_once`. C’est une bonne pratique pour organiser le code de manière modulaire et réutilisable.
 
 ## Fichiers à la racine du site :
 - `index.php` : Page d'accueil
