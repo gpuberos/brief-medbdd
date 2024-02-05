@@ -7,7 +7,7 @@ define("CSS_PATH", "../assets/css");
 define("IMG_PATH", "/assets/img");
 
 // Définition du chemin d'accès au sous-répertoire 'doctors' dans le répertoire des images
-define("DOCTORS_IMG_PATH", IMG_PATH . "/doctors");
+define("DOCTORS_IMG_PATH", IMG_PATH . "/doctors/");
 
 // Définition du chemin d'accès au sous-répertoire 'products' dans le répertoire des images
-define("PRODUCTS_IMG_PATH", IMG_PATH . "/products");
+define("PRODUCTS_IMG_PATH", IMG_PATH . "/products/");
