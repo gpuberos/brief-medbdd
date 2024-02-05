@@ -3,8 +3,11 @@
     <div class="row row-cols-1 row-cols-md-2 m-auto justify-content-center ">
 
         <?php
-            $doctors = findAllDoctors($db);
-            foreach ($doctors as $doctor) : 
+        // La requête SQL est stockée dans la variable $doctorsQuery puis est passé en paramètre dans la fonction findAllDatas.
+        $doctorsQuery = "SELECT id, doctor_name, doctor_description, doctor_pathimg FROM doctors";
+        $doctors = findAllDatas($db, $doctorsQuery);
+
+        foreach ($doctors as $doctor) :
         ?>
             <div class="card col-6 text-center m-3 p-0 rounded-0" style="width: 300px;">
                 <img src="<?= DOCTORS_IMG_PATH . $doctor['doctor_pathimg'] ?>" class="card-img-top rounded-0" alt="<?= $doctor['doctor_name'] ?>">

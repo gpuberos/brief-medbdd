@@ -39,13 +39,9 @@ function displaySection($db, $sectionCategory)
     }
 }
 
-// Fonction qui récupère tous les docteurs de la base de données.
-function findAllDoctors($db)
+// Fonction qui récupère tous les datas de la base de données.
+function findAllDatas($db, $sql)
 {
-    // Prépare la requête SQL pour sélectionner tous les docteurs.
-    // La requête SQL est stockée dans la variable $sql.
-    $sql = "SELECT id, doctor_name, doctor_description, doctor_pathimg FROM doctors";
-
     // Prépare la requête SQL pour l'exécution.
     // La méthode prepare() est utilisée pour préparer la requête SQL pour l'exécution.
     // Elle retourne un objet PDOStatement qui est stocké dans la variable $sth.
@@ -58,37 +54,9 @@ function findAllDoctors($db)
     // Récupère tous les résultats de la requête SQL et les stocke dans $doctors.
     // La méthode fetchAll() est utilisée pour récupérer tous les résultats de la requête SQL.
     // Elle retourne un tableau associatif de tous les résultats qui sont stockés dans la variable $doctors.
-    $doctors = $sth->fetchAll();
+    $result = $sth->fetchAll();
 
     // Retourne les docteurs récupérés.
     // La fonction retourne le tableau associatif $doctors qui contient tous les docteurs récupérés de la base de données.
-    return $doctors;
-}
-
-// Fonction qui récupère tous les produits de la base de données.
-function findAllProducts($db)
-{
-    // Prépare la requête SQL pour sélectionner tous les produits.
-    // La requête SQL est stockée dans la variable $sql.
-    $sql = "SELECT products.*, product_category.category_name 
-            FROM products 
-            INNER JOIN product_category ON products.product_category_id = product_category.id";
-
-    // Prépare la requête SQL pour l'exécution.
-    // La méthode prepare() est utilisée pour préparer la requête SQL pour l'exécution.
-    // Elle retourne un objet PDOStatement qui est stocké dans la variable $sth.
-    $sth = $db->prepare($sql);
-
-    // Exécute la requête SQL.
-    // La méthode execute() est utilisée pour exécuter la requête SQL préparée.
-    $sth->execute();
-
-    // Récupère tous les résultats de la requête SQL et les stocke dans $products.
-    // La méthode fetchAll() est utilisée pour récupérer tous les résultats de la requête SQL.
-    // Elle retourne un tableau associatif de tous les résultats qui sont stockés dans la variable $products.
-    $products = $sth->fetchAll();
-
-    // Retourne les docteurs récupérés.
-    // La fonction retourne le tableau associatif $products qui contient tous les produits récupérés de la base de données.
-    return $products;
+    return $result;
 }
