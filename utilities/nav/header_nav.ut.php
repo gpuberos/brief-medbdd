@@ -14,6 +14,7 @@
                         <a href="<?= $value['link_url'] ?>" class="nav-link px-5 text-center text-white <?= $value['link_active'] ?>"><?= $value['link_title'] ?></a>
                     </li>
                 <?php endforeach; ?>
+
             </ul>
         </div>
     </div>

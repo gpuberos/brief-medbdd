@@ -42,9 +42,9 @@ $pageInfo = getPageInfo($db);
     <meta name="keywords" content="<?= $pageInfo['page_meta_keywords'] ?>">
 </head>
 
-<body id="<?= $pageInfo['page_bodyId'] ?>">
+<body id="<?= $pageInfo['page_bodyId'] ?>" class="d-flex flex-column vh-100">
     <header>
         <?php require_once dirname(dirname(__DIR__)) . '/utilities/nav/header_nav.ut.php'; ?>
     </header>
 
-    <main class="py-4">
+    <main class="flex-grow-1 py-4">

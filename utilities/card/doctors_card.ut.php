@@ -3,7 +3,7 @@
         <div class="row row-cols-1 row-cols-xs-2 row-cols-lg-2 row-cols-xl-4 row-gap-4">
 
             <?php
-            // La requête SQL est stockée dans la variable $doctorsQuery puis est passé en paramètre dans la fonction findAllDatas.
+            // La requête SQL est stockée dans la variable $doctorsQuery puis est passé en paramètre dans la fonction displayCards.
             $doctorsQuery = "SELECT id, doctor_name, doctor_description, doctor_pathimg FROM doctors";
             $doctors = findAllDatas($db, $doctorsQuery);
 

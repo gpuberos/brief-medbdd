@@ -1,4 +1,24 @@
-# Génération de la base de données à la main sans outils
+# La base de données dbbrief_med
+
+Réalisé sans outils à la main en se basant sur le schéma UML réalisé avec Draw.io.
+
+1. **nav_category** : Cette table stocke les informations sur les différentes catégories de navigation. Chaque catégorie a un `id` unique (PK) et un `nav_name`.
+2. **pages** : Cette table stocke les informations sur les différentes pages du site. Chaque page a un `id` unique, un `page_title`, un `page_meta_desc`, un `page_meta_keywords`, un `page_url`, un `page_bodyId` et un `nav_category_id` qui est une clé étrangère (FK) faisant référence à l'`id` dans la table `nav_category`.
+3. **section_category** : Cette table stocke les informations sur les différentes catégories de sections. Chaque catégorie de section a un `id` unique (PK) et un `section_category_name`.
+4. **sections** : Cette table stocke les informations sur les différentes sections du site. Chaque section a un `id` unique (PK), un `section_title`, un `section_description` et un `section_category_id` qui est une clé étrangère (FK) faisant référence à l'`id` dans la table `section_category`.
+5. **product_category** : Cette table stocke les informations sur les différentes catégories de produits. Chaque catégorie de produit a un `id` unique (PK) et un `category_name`.
+6. **products** : Cette table stocke les informations sur les différents produits. Chaque produit a un `id` unique (PK), un `product_title`, un `product_description`, un `product_price`, un `product_pathimg` et un `product_category_id` qui est une clé étrangère (FK) faisant référence à l'`id` dans la table `product_category`.
+7. **doctors** : Cette table stocke les informations sur les différents médecins. Chaque médecin a un `id` unique (PK), un `doctor_name`, un `doctor_description` et un `doctor_pathimg`.
+
+## Schéma UML
+
+![Schéma UML dbbrief_med](../docs/uml/export/dbbrief_med-uml.drawio.svg)
+
+> [!NOTE]
+> PK (Primary Key) : La clé primaire permet d’identifier chaque enregistrement dans une table de base de données.  
+> FK (Foreign Key) : La clé étrangère fait référence à la clé primaire d’une autre table, elle permet de mettre en relation les différentes tables de la BDD.
+
+## Requête SQL création de la base de données
 
 ```sql
 CREATE DATABASE dbbrief_med;
@@ -101,10 +121,10 @@ VALUES
 ('Eat Me', 'Un gâteau qui vous fait changer de taille selon la part que vous mangez. Idéal pour explorer des endroits inaccessibles !', 'eat_me.webp', 12.99, 3),
 ('Upelkuchen', 'Un biscuit qui vous fait changer de couleur selon la saveur que vous choisissez. Parfait pour vous camoufler ou vous amuser !', 'upelkuchen.webp', 14.99, 3),
 ('Jabberwocky Blood', 'Un élixir qui vous donne des pouvoirs magiques pendant une courte durée. Utilisez-le avec prudence !', 'jabberwocky_Blood.webp', 19.99, 2),
-('Outlandish', 'Une pilule qui vous fait changer de personnalité selon l’humeur que vous souhaitez. Idéale pour vous évader ou vous surprendre !', 'outlandish.webp', 16.99, 1),
+('Outlandish', 'Une pilule qui vous fait changer de personnalité selon l'humeur que vous souhaitez. Idéale pour vous évader ou vous surprendre !', 'outlandish.webp', 16.99, 1),
 ('Rose me', 'Un gâteau qui vous transforme en une rose rouge. Vous pouvez ainsi embellir le jardin de la Reine de cœur, mais attention à ne pas vous faire couper !', 'rose_me.webp', 11.99, 3),
-('Chess me', 'Un médicament qui vous fait entrer dans le jeu d’échecs vivant. Vous pouvez ainsi devenir un pion, un fou, une tour, un cavalier, un roi ou une reine, mais attention à ne pas vous faire échec et mat !', 'chess_me.webp', 6.99, 1),
-('Wonderland Tea', 'Un thé qui vous transporte dans le monde merveilleux d’Alice. Attention, vous ne contrôlez pas le temps ni le lieu de votre retour !', 'wonderland_Tea.webp', 24.99, 3);
+('Chess me', 'Un médicament qui vous fait entrer dans le jeu d'échecs vivant. Vous pouvez ainsi devenir un pion, un fou, une tour, un cavalier, un roi ou une reine, mais attention à ne pas vous faire échec et mat !', 'chess_me.webp', 6.99, 1),
+('Wonderland Tea', 'Un thé qui vous transporte dans le monde merveilleux d'Alice. Attention, vous ne contrôlez pas le temps ni le lieu de votre retour !', 'wonderland_Tea.webp', 24.99, 3);
 
 INSERT INTO
 doctors (doctor_name, doctor_description, doctor_pathimg)

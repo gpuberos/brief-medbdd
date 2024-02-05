@@ -13,7 +13,7 @@ function getPageInfo($db)
     $currentScriptPath = getCurrentScriptPath();
 
     // Prépare la requête SQL
-    $sql = "SELECT * FROM pages";
+    $sql = "SELECT page_title, page_meta_desc, page_meta_keywords, page_url, page_bodyId FROM pages";
 
     // Prépare la requête SQL pour l'exécution.
     $sth = $db->prepare($sql);

@@ -39,7 +39,7 @@ function displaySection($db, $sectionCategory)
     }
 }
 
-// Fonction qui récupère tous les datas de la base de données.
+// Fonction qui récupère tous les résultats de la base de données.
 function findAllDatas($db, $sql)
 {
     // Prépare la requête SQL pour l'exécution.
@@ -51,12 +51,12 @@ function findAllDatas($db, $sql)
     // La méthode execute() est utilisée pour exécuter la requête SQL préparée.
     $sth->execute();
 
-    // Récupère tous les résultats de la requête SQL et les stocke dans $doctors.
+    // Récupère tous les résultats de la requête SQL et les stocke dans $result.
     // La méthode fetchAll() est utilisée pour récupérer tous les résultats de la requête SQL.
-    // Elle retourne un tableau associatif de tous les résultats qui sont stockés dans la variable $doctors.
+    // Elle retourne un tableau associatif de tous les résultats qui sont stockés dans la variable $result.
     $result = $sth->fetchAll();
 
-    // Retourne les docteurs récupérés.
-    // La fonction retourne le tableau associatif $doctors qui contient tous les docteurs récupérés de la base de données.
+    // Retourne les résultats récupérés.
+    // La fonction retourne le tableau associatif $result qui contient tous les résultats récupérés de la base de données.
     return $result;
 }

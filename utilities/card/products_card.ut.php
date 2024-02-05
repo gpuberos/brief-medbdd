@@ -1,7 +1,7 @@
 <section>
     <div class="row row-cols-1 row-cols-md-4 row-gap-4">
         <?php
-        // La requête SQL est stockée dans la variable $productsQuery puis est passé en paramètre dans la fonction findAllDatas.
+        // La requête SQL est stockée dans la variable $productsQuery puis est passé en paramètre dans la fonction displayCards.
         $productsQuery = "SELECT products.*, product_category.category_name FROM products INNER JOIN product_category ON products.product_category_id = product_category.id";
         $products = findAllDatas($db, $productsQuery);
 
