@@ -9,7 +9,7 @@
                 <h5 class="card-title"><?= $product['product_title'] ?></h5>
                 <p><span class="badge rounded-pill text-bg-light"><?= $product['category_name'] ?></span></p>
                 <p class="card-text"><?= $product['product_description'] ?></p>
-                <p class="card-text"><small class="text-muted">Prix: <?= $product['product_price'] ?></small></p>
+                <p class="card-text"><small class="text-muted">Prix: <?= $product['product_price'] ?> €</small></p>
                 <a href="./error.php" class="btn bg-blue text-white rounded-0">Acheter</a>
             </div>
         </div>
