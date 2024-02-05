@@ -18,6 +18,7 @@ require_once dirname(dirname(__DIR__)) . '/function/header.fn.php';
 // Inclusion du fichier contenant les fonctions nécessaire au frontend
 require_once dirname(dirname(__DIR__)) . '/function/frontend.fn.php';
 
+// Appel de la fonction getPageInfo() pour obtenir les informations relatives à la page dans la base de données
 $pageInfo = getPageInfo($db);
 
 ?>
