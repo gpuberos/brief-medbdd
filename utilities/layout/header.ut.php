@@ -15,8 +15,8 @@ $db = getPDOlink($config);
 // Inclusion du fichier contenant les fonctions nécessaire à l'en-tête
 require_once dirname(dirname(__DIR__)) . '/function/header.fn.php';
 
-require_once dirname(dirname(__DIR__)) . '/data/pages_infos.data.php';
-require_once dirname(dirname(__DIR__)) . '/data/primary_section.data.php';
+// Inclusion du fichier contenant les fonctions nécessaire au frontend
+require_once dirname(dirname(__DIR__)) . '/function/frontend.fn.php';
 
 $pageInfo = getPageInfo($db);
 
