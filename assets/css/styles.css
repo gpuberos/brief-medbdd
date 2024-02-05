@@ -2,10 +2,14 @@
   CUSTOM CSS
   ========================================================================== */
 
-/* Import Fonts */
+/*
+  FONTS IMPORT
+  ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-/* General */
+/*
+  GENERAL
+  ========================================================================== */
 body {
   font-family: 'Playfair Display', serif;
 }
@@ -15,7 +19,9 @@ body {
   color: #fff;
 }
 
-/* Custom Boostrap */
+/*
+  CUSTOM BOOTSTRAP
+  ========================================================================== */
 .fs-22 {
   font-size: 1.375rem !important;
 }
@@ -32,7 +38,9 @@ body {
   text-shadow: black 1px 0 5px;
 }
 
-/* Header */
+/*
+  HEADER
+  ========================================================================== */
 #home header {
   width: 100%;
   height: 100vh;
@@ -41,7 +49,7 @@ body {
   background-size: cover;
 }
 
-/* Navbar */
+/* NAVBAR */
 .navbar-toggler {
   border-color: rgba(0, 33, 74, 1);
 }
@@ -64,12 +72,16 @@ body {
   font-weight: 900;
 }
 
-/* Produits */
+/*
+  PRODUCTS
+  ========================================================================== */
 #products {
   background-color: #6c442a;
 }
 
-/* Contact */
+/*
+  CONTACT
+  ========================================================================== */
 #contact {
   background-color: #6c442a;
 }
@@ -89,7 +101,9 @@ body {
   background: #B1653490 !important;
 }
 
-/* Footer */
+/*
+  FOOTER
+  ========================================================================== */
 .footer {
   position: relative;
   top: 100px;
@@ -97,7 +111,7 @@ body {
   background: linear-gradient(180deg, #00214A 30.38%, #004F73 100%);
 }
 
-/* Animation vague dans le footer */
+/* Wave animation in the footer */
 .wave {
   position: absolute;
   top: -100px;
