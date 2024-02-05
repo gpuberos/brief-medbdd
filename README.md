@@ -4,11 +4,9 @@
 - [**FUNCTION.md** : documentation sur les fonctions](/docs/FUNCTION.md)
 - [**DATABASE.md** : documentation sur la base de données](/docs/DATABASE.md)
 
-# Détails du brief :
+# Détails du brief
 
-## Brief : Création d’un site web dynamique qui interagit avec une base de données relationnelle en PHP
-
-
+## Création d’un site web dynamique qui interagit avec une base de données relationnelle en PHP
 
 En tant que développeur Fullstack, création d'une base de données Création de composants d'accès aux données Création de composants réutilisable.
 
