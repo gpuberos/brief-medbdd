@@ -14,6 +14,15 @@ Réalisé sans outils à la main en se basant sur le schéma UML réalisé avec 
 
 ![Schéma UML dbbrief_med](../docs/uml/export/dbbrief_med-uml.drawio.svg)
 
+**Détails des relations entre les tables** :
+
+1. **Pages et Catégories de Navigation (Many-to-One)**:
+  - La table `pages` a une relation **Many-to-One** avec la table `nav_category`. Cela signifie que plusieurs pages peuvent être associées à une seule catégorie de navigation `nav_category`. La clé étrangère `nav_category_id` dans la table `pages` référence la clé primaire `id` de la table `nav_category`.
+2. **Sections et Catégories de Section (One-to-Many)**:
+  - La table `sections` a une relation **One-to-Many** avec la table `section_category`. Cela signifie qu’une catégorie de section `section_category` peut être associée à plusieurs sections. La clé étrangère `section_category_id` dans la table `sections` référence la clé primaire `id` de la table `section_category`.
+3. **Produits et Catégories de Produits (One-to-Many)**:
+  - La table `products` a également une relation **One-to-Many** avec la table `product_category`. Une catégorie de produit `product_category` peut contenir plusieurs produits. La clé étrangère `product_category_id` dans la table `products` référence la clé primaire `id` de la table `product_category`.
+
 > [!NOTE]
 > PK (Primary Key) : La clé primaire permet d’identifier chaque enregistrement dans une table de base de données.  
 > FK (Foreign Key) : La clé étrangère fait référence à la clé primaire d’une autre table, elle permet de mettre en relation les différentes tables de la BDD.
