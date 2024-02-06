@@ -100,7 +100,7 @@ function displaySection($db, $sectionCategory)
 3. **Exécution de la requête SQL** : On exécute la requête SQL avec la méthode `execute()`.
 4. **Récupération des résultats** : On récupére tous les résultats de la requête SQL avec la méthode `fetchAll()` et on les stockes dans la variable `$sections`.
 5. **Vérification de l'existence de la section** : on vérifie si la section de la page courante existe en utilisant la fonction `empty()`. Si le tableau `$sections` n'est pas vide, cela signifie que la section existe.
-6. **Affichage de la section** : Si la section existe, on parcourt chaque section avec une boucle `foreach`. Pour chaque section, on affiche la section en utilisant `echo`. La section est composée d'un titre (h2) et d'un contenu (p), qui sont récupérés à partir du tableau `$section`.
+6. **Affichage de la section** : Si la section existe, on parcourt chaque section avec une boucle `foreach`. Pour chaque section, on affiche la section en utilisant `echo`. La section est composée d'un titre `h2` et d'un contenu `p`, qui sont récupérés à partir du tableau `$section`.
 7. **Gestion des erreurs** : Si la section n'existe pas (si le tableau `$sections` est **vide**), on affiche un message d'erreur.
 
 ### findAllDatas($db, $sql)
@@ -132,6 +132,12 @@ foreach ($products as $product) :
 </div>
 <?php endforeach; ?>
 ```
+**Explication de la requête `$productsQuery`** :  
+  
+- `SELECT products.*, product_category.category_name` : on sélectionne toutes les colonnes `*` de la table `products` et la colonne `category_name` de la table `product_category`.
+- `FROM products` : nous indiquons que nous commençons par la table `products`.
+- `INNER JOIN product_category` : on joint la table `product_category` à la table `products`. Un `INNER JOIN` retourne les lignes où il y a une correspondance dans les 2 tables.
+- `ON products.product_category_id = product_category.id` : on spécifie la condition de jointure. Nous joignons les 2 tables entre la colonne `product_category_id` de la table `products` et la colonne `id` de la table `product_category`.
 
 **Fonction :**  
   
@@ -336,6 +342,14 @@ function generateNavLinks($db, $navName)
 7. **Ajout d'un nouveau tableau associatif au tableau des liens de navigation** : Un nouveau tableau associatif est ajouté au tableau `$navLinks`. Ce tableau contient le titre du lien `(link_title)`, l'URL du lien `(link_url)` et l'état actif du lien `(link_active)`.
 8. **Retour du tableau des liens de navigation** : Enfin, le tableau `$navLinks` est renvoyé par la fonction.
 
+**Explication de la requête `$sql`** : 
+   
+- `SELECT pages.*, nav_category.nav_name` : on sélectionne toutes les colonnes `*` de la table `pages` et la colonne `nav_name` de la table `nav_category`.
+- `FROM pages` : nous indiquons que nous commençons par la table `pages`.
+- `INNER JOIN nav_category` : on joint la table `nav_category` à la table `pages`. Un `INNER JOIN` retourne les lignes où il y a une correspondance dans les 2 tables.
+- `ON pages.nav_category_id = nav_category.id` : on spécifie la condition de jointure. Nous joignons les 2 tables, la colonne `nav_category_id` de la table `pages` et la colonne `id` de la table `nav_category`.
+- `WHERE nav_category.nav_name = :navName` : on ajoute une condition à la requête. Seules les lignes où le `nav_name` de la table `nav_category` est égal à la valeur de `:navName` (paramètre défini lors de l’exécution de la requête) seront retournées.
+
 > [!NOTE]
 > **Pourquoi nous utilisons `$navLinks[]` au lieu de `$navLinks`** :  
 >   
@@ -345,6 +359,8 @@ function generateNavLinks($db, $navName)
 > **Placeholder** (ou espace réservé en français) est un terme utilisé en programmation pour désigner un emplacement qui doit être remplacé par des données réelles à un moment donné dans notre cas ce sera `:navName`. Dans notre requête SQL préparée elle indique l'endroit ou une valeur doit être insérée.
 >
 > **Statement Handle** `$sth` : Il s'agit d'un objet qui représente une requête SQL préparée, une fois la requête exécutée, le jeu de résultats associé.
+>  
+> **`pages.*`** : on sélectionne toutes les colonnes de la table `pages` uniquement et `nav_category.nav_name`. Si on avait uniquement utilisé `*` on aurait également sélectionner toutes les tables de `nav_category.nav_name`.
 
 #### Fonction `strpos()`
 
