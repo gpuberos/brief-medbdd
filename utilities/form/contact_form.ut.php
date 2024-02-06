@@ -1,7 +1,7 @@
 <section class="col-12 col-sm-8 m-auto">
   <h2 class="text-center">Formulaire de contact</h2>
   
-  <form class="p-4 mb-5 " action="" method="GET">
+  <form class="p-4 mb-5 " action="#" method="GET">
     <div class="col d-flex flex-column justify-content-center w-75 container">
       <div class="row row-cols-md-2 row-cols-1 mb-3">
         <div class="col">
@@ -63,10 +63,10 @@ $message = isset($_GET['message']) ? htmlspecialchars($_GET['message']) : null;
 // $message = $_GET['message'];
 
 // Vérification si les données saisies s'affichent
-var_dump($prenom);
-var_dump($nom);
-var_dump($email);
-var_dump($sujet);
-var_dump($message);
+// var_dump($prenom);
+// var_dump($nom);
+// var_dump($email);
+// var_dump($sujet);
+// var_dump($message);
 
 ?>
