@@ -55,7 +55,7 @@ Dans la fonction `displaySection(param1, param2)`, on passe en premier paramètr
 **Fonction :**  
 
 ```php
-// Fonction qui affiche la section principale de la page courante
+// Fonction qui affiche une section
 function displaySection($db, $sectionCategory)
 {
     // Prépare la requête SQL
@@ -212,7 +212,6 @@ La fonction parcourt toutes les pages stockés dans la table `pages` de la base 
 - Titre de la page (SEO)
 - Meta description (SEO)
 - Meta keywords (SEO)
-- URL
 - BodyId (id à ajouter au body de la page ex: id="home")
 
 ```php

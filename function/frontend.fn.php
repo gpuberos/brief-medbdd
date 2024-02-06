@@ -1,6 +1,6 @@
 <?php
 
-// Fonction qui affiche la section principale de la page courante
+// Fonction qui affiche une section
 function displaySection($db, $sectionCategory)
 {
     // Prépare la requête SQL

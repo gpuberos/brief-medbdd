@@ -6,4 +6,5 @@
 
     <?php require_once __DIR__ . '/utilities/card/doctors_card.ut.php'; ?>
 </div>
-    <?php require_once __DIR__ . '/utilities/layout/footer.ut.php'; ?>
+
+<?php require_once __DIR__ . '/utilities/layout/footer.ut.php'; ?>
