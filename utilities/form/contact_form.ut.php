@@ -1,6 +1,6 @@
 <section class="col-12 col-sm-8 m-auto">
   <h2 class="text-center">Formulaire de contact</h2>
-  
+
   <form class="p-4 mb-5 " action="#" method="GET">
     <div class="col d-flex flex-column justify-content-center w-75 container">
       <div class="row row-cols-md-2 row-cols-1 mb-3">
@@ -24,7 +24,7 @@
 
       <div class="mb-3">
         <label for="message" class="form-label">Message</label>
-        <textarea class="form-control rounded-0" id="message" name="message" rows="3"></textarea>
+        <textarea class="form-control rounded-0" id="message" name="message" rows="10"></textarea>
       </div>
       <div class="d-flex justify-content-center">
         <input type="submit" class="btn btn-primary rounded-0 bg-blue border-0">
