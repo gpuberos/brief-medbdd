@@ -22,6 +22,8 @@ Contient les différentes documentations :
 
 Répertoire `uml` contient le fichier source du schéma UML de la base de données (draw.io) `dbbrief_med-uml.drawio`. Le répertoire `export` contient les différentes images exportés du schéma UML.
 
+Répertoire `slideshow` contient la présentation diaporama au format PDF ou PowerPoint du Brief.
+
 ## function
 
 Répertoire contenant des fichiers de fonctions qui sont utilisés à travers le site. Ces fichiers conteniennent des fonctions réutilisables qui accomplissent des tâches spécifiques comme la manipulation de données, l'affichage de données...
