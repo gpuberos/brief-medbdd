@@ -103,6 +103,14 @@ function displaySection($db, $sectionCategory)
 6. **Affichage de la section** : Si la section existe, on parcourt chaque section avec une boucle `foreach`. Pour chaque section, on affiche la section en utilisant `echo`. La section est composée d'un titre `h2` et d'un contenu `p`, qui sont récupérés à partir du tableau `$section`.
 7. **Gestion des erreurs** : Si la section n'existe pas (si le tableau `$sections` est **vide**), on affiche un message d'erreur.
 
+**Explication de la requête `$sql`** : 
+   
+- `SELECT sections.*` : on sélectionne toutes les colonnes `*` de la table `sections`.
+- `FROM pages` : nous indiquons que nous commençons par la table `sections`.
+- `INNER JOIN nav_category` : on joint la table `section_category` à la table `sections`. Un `INNER JOIN` retourne les lignes où il y a une correspondance dans les 2 tables.
+- `ON sections.section_category_id = section_category.id` : on spécifie la condition de jointure. Nous joignons les 2 tables, la colonne `section_category_id` de la table `sections` et la colonne `id` de la table `section_category`.
+- `WHERE section_category.section_category_name = :category` : on ajoute une condition à la requête. Seules les lignes où le `section_category_name` de la table `section_category` est égal à la valeur de `:category` (paramètre défini lors de l’exécution de la requête) seront retournées.
+
 ### findAllDatas($db, $sql)
 
 Fonction générique qui peut être utilisée pour exécuter n'importe quelle requête SQL qui récupère des données de la base de données, ce qui est très utile pour éviter la répétition du code. Elle prend en entrée une connexion à une base de données `$db` et une requête SQL `$sql`, exécute la requête, récupère tous les résultats et les retourne sous forme de tableau associatif.
