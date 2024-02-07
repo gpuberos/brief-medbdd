@@ -4,7 +4,7 @@
 
             <?php
             // La requête SQL est stockée dans la variable $doctorsQuery puis est passé en paramètre dans la fonction displayCards.
-            $doctorsQuery = "SELECT id, doctor_name, doctor_description, doctor_pathimg FROM doctors";
+            $doctorsQuery = "SELECT doctors.* FROM doctors";
             $doctors = findAllDatas($db, $doctorsQuery);
 
             foreach ($doctors as $doctor) :

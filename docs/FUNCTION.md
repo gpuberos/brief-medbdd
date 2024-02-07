@@ -115,37 +115,31 @@ function displaySection($db, $sectionCategory)
 
 Fonction générique qui peut être utilisée pour exécuter n'importe quelle requête SQL qui récupère des données de la base de données, ce qui est très utile pour éviter la répétition du code. Elle prend en entrée une connexion à une base de données `$db` et une requête SQL `$sql`, exécute la requête, récupère tous les résultats et les retourne sous forme de tableau associatif.
 
-Dans la fonction `findAllDatas(param1, param2)`, on passe en premier paramètre la connexion à la bdd, et en second la requête SQL. Dans notre exemple ci-dessous on passe la requête `$productsQuery` qui correspond à la requête pour récupérer les données de la base de données pour les cartes de la page produits. Nous avons également la même chose pour les cartes docteurs de la page `index.php`. Ensuite la fonction retourne les valeurs des cartes. À chaque itération de la boucle foreach on génère une carte avec image, titre, nom de la catégorie, description du produit, son prix et un lien acheter.
+Dans la fonction `findAllDatas(param1, param2)`, on passe en premier paramètre la connexion à la bdd, et en second la requête SQL. Dans notre exemple ci-dessous on passe la requête `$doctorsQuery` qui correspond à la requête pour récupérer les données de la base de données pour les cartes docteurs. Ensuite la fonction retourne les valeurs des cartes. À chaque itération de la boucle foreach on génère une carte avec image, nom du docteur, description du docteur.
 
 ```php
 <?php
-// La requête SQL est stockée dans la variable $productsQuery puis est passé en paramètre dans la fonction findAllDatas.
-$productsQuery = "SELECT products.*, product_category.category_name FROM products INNER JOIN product_category ON productproduct_category_id = product_category.id";
-$products = findAllDatas($db, $productsQuery)
-foreach ($products as $product) :
+// La requête SQL est stockée dans la variable $doctorsQuery puis est passé en paramètre dans fonction displayCards.
+$doctorsQuery = "SELECT doctors.* FROM doctors";
+$doctors = findAllDatas($db, $doctorsQuery);
+
+foreach ($doctors as $doctor) :
 ?>
-<div class="col">
-    <div class="card h-100 text-center rounded-0">
-        <img src="<?= PRODUCTS_IMG_PATH . $product['product_pathimg'] ?>" class="card-img-top rounded-0" alt="$prod['product_title'] ?>">
-        <div class="card-body">
-            <h5 class="card-title"><?= $product['product_title'] ?></h5>
-            <p><span class="badge rounded-pill text-bg-light"><?= $product['category_name'] ?></span></p>
-            <p class="card-text"><?= $product['product_description'] ?></p>
-        </div>
-        <div class="card-footer pb-4">
-            <p class="card-text"><strong>Prix : <?= $product['product_price'] ?> €</strong></p>
-            <a href="#" class="btn bg-blue text-white rounded-0">Acheter</a>
+    <div class="col">
+        <div class="card h-100 text-center rounded-0">
+            <img src="<?= DOCTORS_IMG_PATH . $doctor['doctor_pathimg'] ?>" class="card-img-trounded-0" alt="<?= $doctor['doctor_name'] ?>">
+            <div class="card-body">
+                <h5 class="card-title"><?= $doctor['doctor_name'] ?></h5>
+                <p class="card-text"><?= $doctor['doctor_description'] ?></p>
+            </div>
         </div>
     </div>
-</div>
 <?php endforeach; ?>
 ```
-**Explication de la requête `$productsQuery`** :  
+**Explication de la requête `$doctorsQuery`** :  
   
-- `SELECT products.*, product_category.category_name` : on sélectionne toutes les colonnes `*` de la table `products` et la colonne `category_name` de la table `product_category`.
-- `FROM products` : nous indiquons que nous commençons par la table `products`.
-- `INNER JOIN product_category` : on joint la table `product_category` à la table `products`. Un `INNER JOIN` retourne les lignes où il y a une correspondance dans les 2 tables.
-- `ON products.product_category_id = product_category.id` : on spécifie la condition de jointure. Nous joignons les 2 tables entre la colonne `product_category_id` de la table `products` et la colonne `id` de la table `product_category`.
+- `SELECT doctors.*` : on sélectionne toutes les colonnes `*` de la table `doctors`.
+- `FROM doctors` : nous indiquons que nous commençons par la table `doctors`.
 
 **Fonction :**  
   
@@ -177,6 +171,32 @@ function findAllDatas($db, $sql)
 2. **Exécution de la requête SQL** : On exécute la requête SQL préparée avec la méthode `execute()` de l'objet **PDOStatement** `$sth`.
 3. **Récupération des résultats** : On récupére tous les résultats de la requête SQL avec la méthode `fetchAll()` de l'objet **PDOStatement** (`$sth`). Cette méthode retourne un tableau associatif de tous les résultats qui sont stockés dans la variable `$result`.
 4. **Retour des résultats** : La fonction retourne le tableau associatif `$result` qui contient tous les résultats récupérés de la base de données.
+
+### getSortedProducts($db, $orderBy)
+
+La fonction `getSortedProducts` a pour but de récupérer les produits à partir de la base de données, en les triant par prix (soit en ordre croissant, soit en ordre décroissant) en fonction de la préférence de l’utilisateur. Elle prend en entrée une connexion à une base de données `$db` et une la préférence de tri `$orderBy` (soit `ASC` pour croissant, soit `DESC` pour décroissant).
+
+```php
+// Fonction pour récupérer les produits triés en fonction de la préférence de l'utilisateur
+function getSortedProducts($db, $orderBy)
+{
+    // Construction de la requête SQL pour récupérer les produits avec les noms de catégorie
+    $productsQuery = "SELECT products.*, product_category.category_name
+                    FROM products
+                    INNER JOIN product_category ON products.product_category_id = product_category.id
+                    ORDER BY product_price $orderBy";
+
+    // Appel de la fonction findAllDatas pour exécuter la requête et renvoyer les résultats
+    return findAllDatas($db, $productsQuery);
+}
+```
+**Explication de la requête `$productsQuery` :**
+
+- `SELECT products.*, product_category.category_name` : on sélectionne toutes les colonnes `*` de la table `products` et la colonne `category_name` de la table `product_category`.
+- `FROM products` : nous indiquons que nous commençons par la table `products`.
+- `INNER JOIN product_category` : on joint la table `product_category` à la table `products`. Un `INNER JOIN` retourne les lignes où il y a une correspondance dans les 2 tables.
+- `ON products.product_category_id = product_category.id` : on spécifie la condition de jointure. Nous joignons les 2 tables entre la colonne `product_category_id` de la table `products` et la colonne `id` de la table `product_category`.
+- `ORDER BY product_price $orderBy` : Trie les résultats par prix de produit (soit en ordre croissant, soit en ordre décroissant) en fonction de la préférence de tri spécifiée dans `$orderBy`.
 
 ## header.fn.php
 
