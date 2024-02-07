@@ -15,20 +15,22 @@ if (isset($_POST['sortBy']) && $_POST['sortBy'] == 'ASC') {
 ?>
 
 <section>
-    <div class="col-auto ms-auto mb-4">
-        <form action="#" method="POST" class="row g-3">
-            <div class="col-auto">
-                <label for="sortByPrice" class="visually-hidden">Trier les produits par prix</label>
-                <select class="form-select" id="sortByPrice" name="sortBy" aria-label="Select pour trier par prix">
-                    <option selected>Trier par prix</option>
-                    <option value="ASC">Moins cher</option>
-                    <option value="DESC">Plus cher</option>
-                </select>
-            </div>
-            <div class="col-auto">
-                <input type="submit" value="Valider" class="btn bg-blue text-white">
-            </div>
-        </form>
+    <div class="row mb-4">
+        <div class=" col-auto">
+            <form action="#" method="POST" class="row g-3">
+                <div class="col-auto">
+                    <label for="sortByPrice" class="visually-hidden">Trier les produits par prix</label>
+                    <select class="form-select" id="sortByPrice" name="sortBy" aria-label="Select pour trier par prix">
+                        <option selected>Trier par prix</option>
+                        <option value="ASC">Moins cher</option>
+                        <option value="DESC">Plus cher</option>
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <input type="submit" value="Valider" class="btn bg-blue text-white">
+                </div>
+            </form>
+        </div>
     </div>
 
     <div class="row row-cols-1 row-cols-md-4 row-gap-4">
