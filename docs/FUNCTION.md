@@ -174,7 +174,7 @@ function findAllDatas($db, $sql)
 
 ### getSortedProducts($db, $orderBy)
 
-La fonction `getSortedProducts` a pour but de récupérer les produits à partir de la base de données, en les triant par prix (soit en ordre croissant, soit en ordre décroissant) en fonction de la préférence de l’utilisateur. Elle prend en entrée une connexion à une base de données `$db` et une la préférence de tri `$orderBy` (soit `ASC` pour croissant, soit `DESC` pour décroissant).
+La fonction `getSortedProducts` a pour but de récupérer les produits à partir de la base de données, en les triant par prix (soit en ordre croissant, soit en ordre décroissant) en fonction de la préférence de l’utilisateur. Elle prend en entrée une connexion à une base de données `$db` et la préférence de tri `$orderBy` (soit `ASC` pour croissant, soit `DESC` pour décroissant).
 
 ```php
 // Fonction pour récupérer les produits triés en fonction de la préférence de l'utilisateur
