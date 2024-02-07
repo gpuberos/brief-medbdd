@@ -12,7 +12,7 @@ Réalisé sans outils à la main en se basant sur le schéma UML réalisé avec 
 
 ## Schéma UML
 
-![Schéma UML dbbrief_med](../docs/uml/export/dbbrief_med-uml.drawio.svg)
+![Schéma UML dbbrief_med](../docs/uml/export/dbbrief_med-uml.svg)
 
 **Détails des relations entre les tables** :
 
