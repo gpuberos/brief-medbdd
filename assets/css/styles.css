@@ -67,7 +67,8 @@ body {
   font-weight: 400;
 }
 
-.navbar-nav .nav-link.active {
+.navbar-nav .nav-link.active,
+.nav .nav-link.active {
   font-weight: 900;
 }
 
